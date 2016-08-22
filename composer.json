@@ -1,0 +1,23 @@
+{
+    "name": "dansorahan/stones",
+    "description": "Stone Heaps",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "<=4.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Sorahan",
+            "email": "dan@kyoto.io"
+        }
+    ],
+    "require": {
+        "symfony/console": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "DJS\\": "src/"
+        }
+    }
+}

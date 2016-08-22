@@ -1,0 +1,30 @@
+#! /usr/bin/env php
+<?php
+/*
+ * This file is part of Stones Task.
+ *
+ * (c) Dan Sorahan <dan@kyoto.io>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Wrapper executable file for loading vendor
+ * dependencies. If composer has not yet been run
+ * warn the user.
+ */
+if (!file_exists(__DIR__.'/vendor/autoload.php')) {
+    die ("\033[1;31m Autoloader not found\e[0m\n please run `composer install`.\n\n");
+}
+
+require __DIR__.'/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use DJS\Command\PickupStonesCommand;
+
+$command = new PickupStonesCommand();
+$application = new Application();
+$application->add($command);
+$application->setDefaultCommand($command->getName());
+$application->run();
